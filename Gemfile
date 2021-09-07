@@ -51,6 +51,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'image_processing'
 gem 'mini_magick'
+gem 'devise'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
