@@ -47,6 +47,10 @@ end
 gem 'haml-rails', '~> 2.0'
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
+gem 'font-awesome-sass'
+gem 'simple_form'
+gem 'image_processing'
+gem 'mini_magick'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
