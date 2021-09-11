@@ -52,6 +52,7 @@ gem 'simple_form'
 gem 'image_processing'
 gem 'mini_magick'
 gem 'devise'
+gem 'omniauth-google-oauth2'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
