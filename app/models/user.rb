@@ -18,4 +18,6 @@ class User < ApplicationRecord
     end
     user
   end
+
+  has_many :posts
 end
