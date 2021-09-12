@@ -53,6 +53,7 @@ gem 'image_processing'
 gem 'mini_magick'
 gem 'devise'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
