@@ -315,7 +315,7 @@ DEPENDENCIES
   listen (~> 3.3)
   mini_magick
   omniauth-google-oauth2
-  pg
+  pg (~> 1.1)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)
@@ -333,4 +333,4 @@ RUBY VERSION
    ruby 2.7.4
 
 BUNDLED WITH
-   2.1.2
+   2.1.4
