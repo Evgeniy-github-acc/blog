@@ -8,11 +8,12 @@
       = post.created_at
       /= link_to 'Показать', post
       /= link_to 'Редактировать', edit_post_path(post)
-      = link_to edit_post_path(post), class: 'btn btn-sm btn-warning' do
-        .fa.fa-edit
-        Редактировать
-      = link_to post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' do
-        .fa.fa-trash
-        Удалить
-    = post.user.email    
+      - if current_user
+        = link_to edit_post_path(post), class: 'btn btn-sm btn-warning' do
+          .fa.fa-edit
+          Редактировать
+        = link_to post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' do
+          .fa.fa-trash
+          Удалить
+      = post.user.email    
 %p    

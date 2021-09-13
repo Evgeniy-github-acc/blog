@@ -1,0 +1,22 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  .container-fluid
+    %a.navbar-brand{:href => "/"} Healthyweight
+    %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarSupportedContent", "data-bs-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      %ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        - if current_user
+          %li.nav-item
+            .nav-link 
+              = current_user.email
+          %li.nav-item
+            = link_to edit_user_registration_path, class: 'nav-link' do
+              .fa.fa-cog
+              %b Настройки
+          %li.nav-item
+            = link_to destroy_user_session_path, method: :delete, class: 'nav-link' do
+              %b Выйти
+        - else
+          %ul.navbar-nav
+            %il.navbar-item= link_to 'Регистрация', new_user_registration_path, class: 'nav-link' 
+            %il.navbar-item= link_to 'Вход', new_user_session_path, class: 'nav-link'
