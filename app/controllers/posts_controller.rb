@@ -18,6 +18,10 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    if @post.id == current_user.id
+    else
+      redirect_to root_path, notice: 'You are not logged in'
+    end  
   end
 
   # POST /posts or /posts.json
@@ -38,24 +42,32 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: "Post was successfully updated." }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+    if @post.id == current_user.id
+      respond_to do |format|
+        if @post.update(post_params)
+          format.html { redirect_to @post, notice: "Post was successfully updated." }
+          format.json { render :show, status: :ok, location: @post }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @post.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to root_path, notice: 'You are not logged in'
     end
   end
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
-    @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    if @post.id == current_user.id
+      @post.destroy
+      respond_to do |format|
+        format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to root_path, notice: 'You are not logged in'
+    end  
   end
 
   private
