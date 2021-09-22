@@ -16,5 +16,6 @@
           = link_to post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' do
             .fa.fa-trash
             Удалить
-      = post.user.email    
+      = post.user.email
+      = link_to 'New Comment', new_post_comment_path(post), class: 'btn btn-sm btn-warning'    
 %p    

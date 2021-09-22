@@ -1,0 +1,18 @@
+.card
+  .card-header
+    = comment.user.id 
+  .card-body
+    = comment.body
+  .card-footer
+    .btn-group
+      = comment.created_at
+    -#  - if current_user
+    -#    - if comment.user == current_user  
+    -#      = link_to edit_post_comment_path(@post), class: 'btn btn-sm btn-warning' do
+    -#        .fa.fa-edit
+    -#        Редактировать
+    -#      = link_to comment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' do
+    -#       .fa.fa-trash
+    -#       Удалить
+    -# = post.user.email  
+%p    
